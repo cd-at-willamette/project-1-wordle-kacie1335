@@ -5,6 +5,7 @@
 # Estimated time spent (hr):6
 # Description of any added extensions:
 ########################################
+
 from WordleGraphics import *  # WordleGWindow, N_ROWS, N_COLS, CORRECT_COLOR, PRESENT_COLOR, MISSING_COLOR, UNKNOWN_COLOR
 from english import * # ENGLISH_WORDS, is_english_word
 import random
@@ -37,14 +38,16 @@ def wordle():
 
             else:
                 gw.set_square_color(gw.get_current_row(),i,MISSING_COLOR)
-        #move rows?
-        while guess != answer:
-            gw.get_current_row == gw.set_current_row(+1)
-            
+
         #finish the game
         if guess == answer:
             gw.show_message("YOU GOT IT!")
             gw.set_current_row(N_ROWS) 
+
+        else:#now when i press enter it deletes the guess after moving down one row
+            current_row = gw.get_current_row()
+            gw.set_current_row(current_row+ 1)
+            gw.show_message("the answer was", answer)
 
         #create a random 5 letter word as the answer 
     def random_word():
