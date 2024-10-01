@@ -42,12 +42,13 @@ def wordle():
         #finish the game
         if guess == answer:
             gw.show_message("YOU GOT IT!")
-            gw.set_current_row(N_ROWS) 
-
-        else:#now when i press enter it deletes the guess after moving down one row
+            gw.set_current_row(gw.get_current_row) 
+        else:
             current_row = gw.get_current_row()
             gw.set_current_row(current_row+ 1)
-            gw.show_message("the answer was", answer)
+
+        if gw.get_current_row()==N_ROWS:
+            gw.show_message(answer)
 
         #create a random 5 letter word as the answer 
     def random_word():
@@ -80,3 +81,5 @@ def wordle():
 
 # Startup boilerplate
 if __name__ == "__main__":
+    wordle()
+    
